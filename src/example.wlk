@@ -50,8 +50,9 @@ object elSuspiro {
 		return false
 	}
 	
-	method chau() {}
+	method hola() {}
 	
+	method chau() {}
 }
 
 object unaTurbinaPiola {
