@@ -49,6 +49,9 @@ object elSuspiro {
 	method esContaminante() {
 		return false
 	}
+	
+	method hola() {}
+	
 }
 
 object unaTurbinaPiola {
