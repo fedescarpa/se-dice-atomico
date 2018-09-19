@@ -4,6 +4,11 @@ object springfield {
 	var property velocidadDelViento = 20
 	var property riquezaDelSuelo = 0.9
 	
+	var centrales = #{burns, exBosque, elSuspiro}
+	
+	method centralesContaminantes() {
+		return centrales.filter({ central => central.esContaminante() })
+	}
 }
 
 object burns {
@@ -12,6 +17,10 @@ object burns {
 	
 	method produccionEnergetica(ciudad) {
 		return 0.1 * cantidadVarillas
+	}
+	
+	method esContaminante() {
+		return cantidadVarillas > 20
 	}
 	
 }
@@ -24,6 +33,9 @@ object exBosque {
 		return 0.5 + capacidad * ciudad.riquezaDelSuelo()
 	}
 	
+	method esContaminante() {
+		return true
+	}
 }
 
 object elSuspiro {
@@ -34,6 +46,9 @@ object elSuspiro {
 		return turbinas.sum({ turbina => turbina.produccionEnergetica(ciudad) })
 	}
 	
+	method esContaminante() {
+		return false
+	}
 }
 
 object unaTurbinaPiola {
