@@ -13,10 +13,10 @@ object springfield {
 
 object burns {
 	
-	var cantidadVarillas = 10
+	var property cantidadVarillas = 10
 	
 	method produccionEnergetica(ciudad) {
-		return 0.1 * cantidadVarillas
+		return 0.10 * cantidadVarillas
 	}
 	
 	method esContaminante() {
@@ -27,14 +27,14 @@ object burns {
 
 object exBosque {
 	
-	var capacidad = 20
+	var property capacidad = 0
 	
 	method produccionEnergetica(ciudad) {
 		return 0.5 + capacidad * ciudad.riquezaDelSuelo()
 	}
 	
 	method esContaminante() {
-		return true
+		return capacidad > 10
 	}
 }
 

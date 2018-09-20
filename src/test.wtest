@@ -1,0 +1,41 @@
+import example.*
+
+describe "test de las centrales"{
+
+	var capacidadEsperada = 18.5
+	
+	method cambiarAlgo() {
+		// Solo para mostrar que se pueden definir métodos en el describe, 
+		// para compartir logica entre diferentes tests
+	}
+	
+	test "burns con 10 varillas produce 1 en springfield" {
+		assert.equals(1, burns.produccionEnergetica(springfield))
+	}
+	
+	test "ex bosque con 20 toneladas produce 18.5 en springfield" {
+		exBosque.capacidad(20)
+		assert.equals(capacidadEsperada,exBosque.produccionEnergetica(springfield))
+	}
+	
+	test "burns produce 18.5 en springfield" {
+		burns.cantidadVarillas(185)
+		assert.equals(capacidadEsperada,burns.produccionEnergetica(springfield))
+	}
+	
+	test "exBosque es contaminante con mucha capacidad" {
+		exBosque.capacidad(11)
+		assert.that(exBosque.esContaminante())
+	}
+	
+	test "exBosque no es contaminante con poca capacidad" {
+		exBosque.capacidad(9)
+		assert.notThat(exBosque.esContaminante())
+	}
+	
+	test "no testea nada" {
+		//Solo para mostrar como se envia un mensaje en el describe usando self 
+		self.cambiarAlgo()
+		assert.that(true)
+	}
+}
